@@ -13,6 +13,12 @@ if (!isset($_SESSION['username'])) {
 	exit;
 }
 
+if (file_exists(".env")){
+    $env = parse_ini_file('.env');
+}
+
+$apiModel = isset($env) ? $env['API_MODEL'] : getenv('API_MODEL');
+
 ?>
 
 <link rel="stylesheet" href="app.css">	
@@ -166,6 +172,7 @@ if (!isset($_SESSION['username'])) {
 	</div>
 	
 	<div class="input-container">
+		<span>Model: <?php echo $apiModel; ?></span>
 		<div class="input">
 			<textarea class="input-field" type="text" placeholder="Hier kannst Du deine Anfrage stellen" oninput="resize(this)" onkeypress="handleKeydown(event)"></textarea>
 			<div class="input-send" onclick="request()">
@@ -324,7 +331,7 @@ if (!isset($_SESSION['username'])) {
 		document.querySelector('.limitations')?.remove();
 		
 		const requestObject = {};
-		requestObject.model = 'gpt-4-turbo';
+		requestObject.model = '<?php echo $apiModel; ?>'
 		requestObject.stream = true;
 		requestObject.messages = [];
 		const messageElements = messagesElement.querySelectorAll(".message");

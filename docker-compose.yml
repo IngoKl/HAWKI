@@ -10,6 +10,8 @@ services:
       - TESTUSER=true
       - IMPRINT_LOCATION=https://my-univiersity.com/imprint
       - PRIVACY_LOCATION=https://my-univiersity.com/ai-privacy-policy
-      - OPENAI_API_KEY=sk-
+      - OPENAI_API_KEY=sk-XXX
+      - API_MODEL=gpt-4-turbo-preview
+      - API_URL=https://api.openai.com/v1/chat/completions
       # Without this environment setting, the Login button will be not labelled
       - LDAP_LOGIN_BUTTON=Login (Test)
