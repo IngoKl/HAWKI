@@ -1,0 +1,15 @@
+services:
+  apache:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+
+    environment:
+      - Authentication=LDAP
+      - TESTUSER=true
+      - IMPRINT_LOCATION=https://my-univiersity.com/imprint
+      - PRIVACY_LOCATION=https://my-univiersity.com/ai-privacy-policy
+      - OPENAI_API_KEY=sk-
+      # Without this environment setting, the Login button will be not labelled
+      - LDAP_LOGIN_BUTTON=Login (Test)

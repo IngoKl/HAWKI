@@ -80,6 +80,12 @@ If you are setting up a new server, make sure that you install the cURL library.
 
 **_IMPORTANT:_** _Keep the `.env` configuration file secret. Make sure your webserver does not allow directory listing and it blocks access to this configuration file. Double check that it can not be queried with a simple GET request via http://your-hawki-domain/.env_
 
+## Development and Deployment
+
+### Development / Testing Environment (Docker)
+
+`docker compose up --build --force-recreate`
+
 ## Branding
 
 To swap out the HAWK logo for your own, replace the logo.svg file inside the `img` folder. Make sure to either keep the format as svg or replace all references to logo.svg with your respective filetype.
